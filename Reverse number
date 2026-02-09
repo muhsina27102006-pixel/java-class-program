@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+public class TransactionReverser {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter transaction number: ");
+        String number = sc.nextLine(); // read as text
+
+        String reversed = new StringBuilder(number).reverse().toString();
+
+        System.out.println("Reversed number: " + reversed);
+
+        sc.close();
+    }
+}
