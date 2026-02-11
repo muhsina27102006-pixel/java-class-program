@@ -1,0 +1,30 @@
+public class ArrayComparison {
+
+    public static void main(String[] args) {
+
+        int[] arr1 = {10, 20, 30, 40};
+        int[] arr2 = {10, 20, 30, 40};
+
+        // First check length
+        if (arr1.length != arr2.length) {
+            System.out.println("Arrays are NOT identical.");
+            return;
+        }
+
+        boolean isIdentical = true;
+
+        // Compare elements one by one
+        for (int i = 0; i < arr1.length; i++) {
+            if (arr1[i] != arr2[i]) {
+                isIdentical = false;
+                break;
+            }
+        }
+
+        if (isIdentical) {
+            System.out.println("Arrays are identical.");
+        } else {
+            System.out.println("Arrays are NOT identical.");
+        }
+    }
+}
