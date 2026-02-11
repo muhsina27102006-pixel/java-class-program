@@ -1,0 +1,71 @@
+import java.util.Scanner;
+
+// Class to demonstrate multiple ways of initializing an object
+class InitializationSystem {
+
+    private String name;
+    private int age;
+    private double salary;
+
+    // Constructor 1: No parameters (default values)
+    public InitializationSystem() {
+        this.name = "Unknown";
+        this.age = 0;
+        this.salary = 0.0;
+    }
+
+    // Constructor 2: Initialize name only
+    public InitializationSystem(String name) {
+        this.name = name;
+        this.age = 0;
+        this.salary = 0.0;
+    }
+
+    // Constructor 3: Initialize name and age
+    public InitializationSystem(String name, int age) {
+        this.name = name;
+        this.age = age;
+        this.salary = 0.0;
+    }
+
+    // Constructor 4: Initialize all fields
+    public InitializationSystem(String name, int age, double salary) {
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+    }
+
+    // Method to display object details
+    public void display() {
+        System.out.println("Name: " + name + ", Age: " + age + ", Salary: " + salary);
+    }
+}
+
+// Main class
+public class InitializationDemo {
+
+    public static void main(String[] args) {
+
+        // Object 1: Default constructor
+        InitializationSystem obj1 = new InitializationSystem();
+
+        // Object 2: Constructor with name
+        InitializationSystem obj2 = new InitializationSystem("Alice");
+
+        // Object 3: Constructor with name and age
+        InitializationSystem obj3 = new InitializationSystem("Bob", 30);
+
+        // Object 4: Constructor with name, age, and salary
+        InitializationSystem obj4 = new InitializationSystem("Charlie", 40, 75000);
+
+        // Display all objects
+        System.out.println("Object 1:");
+        obj1.display();
+        System.out.println("Object 2:");
+        obj2.display();
+        System.out.println("Object 3:");
+        obj3.display();
+        System.out.println("Object 4:");
+        obj4.display();
+    }
+}
