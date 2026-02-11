@@ -1,0 +1,55 @@
+import java.util.Scanner;
+
+// Class to calculate Simple Interest
+class InterestCalculator {
+    
+    private double principal;   // Principal amount
+    private double rate;        // Rate of interest per year
+    private double time;        // Time in years
+
+    // Constructor to initialize values
+    public InterestCalculator(double principal, double rate, double time) {
+        this.principal = principal;
+        this.rate = rate;
+        this.time = time;
+    }
+
+    // Method to calculate simple interest
+    public double calculateSimpleInterest() {
+        return (principal * rate * time) / 100;
+    }
+
+    // Method to display the details
+    public void display() {
+        System.out.println("Principal: " + principal);
+        System.out.println("Rate of Interest: " + rate + "%");
+        System.out.println("Time (years): " + time);
+        System.out.println("Simple Interest: " + calculateSimpleInterest());
+    }
+}
+
+// Main class
+public class InterestCalculatorApp {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter principal amount: ");
+        double principal = sc.nextDouble();
+
+        System.out.print("Enter rate of interest (% per year): ");
+        double rate = sc.nextDouble();
+
+        System.out.print("Enter time (in years): ");
+        double time = sc.nextDouble();
+
+        // Create object of InterestCalculator
+        InterestCalculator ic = new InterestCalculator(principal, rate, time);
+
+        // Display the result
+        ic.display();
+
+        sc.close();
+    }
+}
