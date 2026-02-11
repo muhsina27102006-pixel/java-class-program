@@ -1,0 +1,73 @@
+// Base class
+class Person {
+    protected String name;
+    protected int age;
+
+    // Constructor
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Method to display person details
+    public void displayPersonInfo() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}
+
+// Derived class 1
+class Student extends Person {
+    protected String studentId;
+    protected String course;
+
+    // Constructor
+    public Student(String name, int age, String studentId, String course) {
+        super(name, age); // Call parent constructor
+        this.studentId = studentId;
+        this.course = course;
+    }
+
+    // Method to display student details
+    public void displayStudentInfo() {
+        displayPersonInfo(); // Call parent method
+        System.out.println("Student ID: " + studentId);
+        System.out.println("Course: " + course);
+    }
+}
+
+// Derived class 2
+class GraduateStudent extends Student {
+    private String specialization;
+    private int graduationYear;
+
+    // Constructor
+    public GraduateStudent(String name, int age, String studentId, String course,
+                           String specialization, int graduationYear) {
+        super(name, age, studentId, course); // Call parent constructor
+        this.specialization = specialization;
+        this.graduationYear = graduationYear;
+    }
+
+    // Method to display graduate student details
+    public void displayGraduateInfo() {
+        displayStudentInfo(); // Call parent method
+        System.out.println("Specialization: " + specialization);
+        System.out.println("Graduation Year: " + graduationYear);
+    }
+}
+
+// Main class
+public class AcademicHierarchyDemo {
+
+    public static void main(String[] args) {
+
+        // Create a GraduateStudent object
+        GraduateStudent grad = new GraduateStudent(
+                "Alice Johnson", 24, "S12345", "MSc Computer Science", "Artificial Intelligence", 2026
+        );
+
+        System.out.println("Graduate Student Details:");
+        grad.displayGraduateInfo();
+    }
+}
