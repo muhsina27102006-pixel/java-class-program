@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+// Class representing a service
+class CalculatorService {
+
+    // Method 1: Add two integers
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    // Method 2: Add three integers
+    public int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    // Method 3: Add two double numbers
+    public double add(double a, double b) {
+        return a + b;
+    }
+
+    // Method 4: Concatenate two strings
+    public String add(String a, String b) {
+        return a + b;
+    }
+}
+
+// Main class
+public class ServiceOverloadingDemo {
+
+    public static void main(String[] args) {
+
+        CalculatorService service = new CalculatorService();
+
+        System.out.println("Integer addition (2 numbers): " + service.add(10, 20));
+        System.out.println("Integer addition (3 numbers): " + service.add(5, 10, 15));
+        System.out.println("Double addition: " + service.add(5.5, 4.5));
+        System.out.println("String concatenation: " + service.add("Hello", "World"));
+    }
+}
