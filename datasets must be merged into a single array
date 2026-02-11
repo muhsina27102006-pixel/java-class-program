@@ -1,0 +1,27 @@
+import java.util.Arrays;
+
+public class ArrayMerger {
+
+    public static void main(String[] args) {
+
+        int[] array1 = {10, 20, 30};
+        int[] array2 = {40, 50, 60};
+
+        // Create a new array with combined length
+        int[] mergedArray = new int[array1.length + array2.length];
+
+        // Copy first array
+        for (int i = 0; i < array1.length; i++) {
+            mergedArray[i] = array1[i];
+        }
+
+        // Copy second array
+        for (int i = 0; i < array2.length; i++) {
+            mergedArray[array1.length + i] = array2[i];
+        }
+
+        // Display merged array
+        System.out.println("Merged Array:");
+        System.out.println(Arrays.toString(mergedArray));
+    }
+}
