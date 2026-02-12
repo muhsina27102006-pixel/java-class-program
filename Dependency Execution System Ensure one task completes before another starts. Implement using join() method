@@ -1,0 +1,54 @@
+// Task 1: Simulate first job
+class TaskA extends Thread {
+    @Override
+    public void run() {
+        System.out.println("TaskA started.");
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("TaskA processing step: " + i);
+            try {
+                Thread.sleep(400); // Simulate work
+            } catch (InterruptedException e) {
+                System.out.println("TaskA interrupted.");
+            }
+        }
+        System.out.println("TaskA finished.");
+    }
+}
+
+// Task 2: Dependent on TaskA
+class TaskB extends Thread {
+    @Override
+    public void run() {
+        System.out.println("TaskB started.");
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("TaskB processing step: " + i);
+            try {
+                Thread.sleep(300); // Simulate work
+            } catch (InterruptedException e) {
+                System.out.println("TaskB interrupted.");
+            }
+        }
+        System.out.println("TaskB finished.");
+    }
+}
+
+// Main class
+public class DependencyExecutionSystem {
+    public static void main(String[] args) {
+
+        TaskA t1 = new TaskA();
+        TaskB t2 = new TaskB();
+
+        t1.start(); // Start TaskA
+
+        try {
+            t1.join(); // Wait for TaskA to finish before starting TaskB
+        } catch (InterruptedException e) {
+            System.out.println("Main thread interrupted while waiting.");
+        }
+
+        t2.start(); // Start TaskB after TaskA completes
+
+        System.out.println("Main thread continues execution...");
+    }
+}
