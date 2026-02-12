@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+class RobustErrorHandler {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            // 1. Taking numeric input
+            System.out.print("Enter first number: ");
+            int num1 = Integer.parseInt(scanner.nextLine());
+
+            System.out.print("Enter second number: ");
+            int num2 = Integer.parseInt(scanner.nextLine());
+
+            // 2. Division (may cause ArithmeticException)
+            int result = num1 / num2;
+            System.out.println("Division Result: " + result);
+
+            // 3. Array access (may cause ArrayIndexOutOfBoundsException)
+            int[] numbers = {10, 20, 30};
+            System.out.print("Enter array index (0-2): ");
+            int index = Integer.parseInt(scanner.nextLine());
+
+            System.out.println("Array Value: " + numbers[index]);
+
+        } 
+        catch (ArithmeticException e) {
+            System.out.println("Error: Cannot divide by zero.");
+        } 
+        catch (NumberFormatException e) {
+            System.out.println("Error: Invalid numeric input.");
+        } 
+        catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Error: Array index out of range.");
+        } 
+        catch (Exception e) {
+            System.out.println("Unexpected Error: " + e.getMessage());
+        } 
+        finally {
+            System.out.println("Program execution completed.");
+            scanner.close();
+        }
+    }
+}
