@@ -1,0 +1,36 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+class ResourceCleanupSystem {
+
+    public static void main(String[] args) {
+
+        Scanner fileScanner = null;
+
+        try {
+            // Attempt to open a file
+            File file = new File("data.txt");
+            fileScanner = new Scanner(file);
+
+            System.out.println("Reading file content:");
+            while (fileScanner.hasNextLine()) {
+                System.out.println(fileScanner.nextLine());
+            }
+
+        } 
+        catch (FileNotFoundException e) {
+            System.out.println("Error: File not found.");
+        } 
+        finally {
+            // Cleanup code that always executes
+            if (fileScanner != null) {
+                fileScanner.close();
+                System.out.println("Scanner resource closed.");
+            }
+            System.out.println("Cleanup completed (finally block executed).");
+        }
+
+        System.out.println("Program continues safely.");
+    }
+}
