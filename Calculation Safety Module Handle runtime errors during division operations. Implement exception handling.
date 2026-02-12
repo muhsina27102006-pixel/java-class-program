@@ -1,0 +1,35 @@
+// Calculation Safety Module
+class SafeCalculator {
+
+    // Method to perform division
+    public double divide(int numerator, int denominator) {
+        double result = 0;
+
+        try {
+            result = numerator / denominator;  // May cause ArithmeticException
+        } 
+        catch (ArithmeticException e) {
+            System.out.println("Error: Cannot divide by zero.");
+        } 
+        finally {
+            System.out.println("Division operation attempted.");
+        }
+
+        return result;
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+
+        SafeCalculator calculator = new SafeCalculator();
+
+        // Valid division
+        System.out.println("Result: " + calculator.divide(10, 2));
+        System.out.println();
+
+        // Division by zero (runtime error handled)
+        System.out.println("Result: " + calculator.divide(10, 0));
+    }
+}
