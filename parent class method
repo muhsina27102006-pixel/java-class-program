@@ -1,0 +1,26 @@
+// Parent class
+class Animal {
+    void makeSound() {
+        System.out.println("The animal makes a sound");
+    }
+}
+
+// Child class
+class Dog extends Animal {
+    // Overriding the makeSound() method
+    @Override
+    void makeSound() {
+        System.out.println("The dog barks");
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+        Animal myAnimal = new Animal();
+        myAnimal.makeSound();  // Output: The animal makes a sound
+
+        Animal myDog = new Dog();  // Polymorphism
+        myDog.makeSound();  // Output: The dog barks
+    }
+}
