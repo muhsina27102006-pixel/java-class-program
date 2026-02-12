@@ -1,0 +1,48 @@
+// Task 1: Print numbers
+class NumberTask extends Thread {
+    @Override
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println(Thread.currentThread().getName() + " prints number: " + i);
+            try {
+                Thread.sleep(400); // Pause for 0.4 seconds
+            } catch (InterruptedException e) {
+                System.out.println(Thread.currentThread().getName() + " interrupted.");
+            }
+        }
+    }
+}
+
+// Task 2: Print letters
+class LetterTask extends Thread {
+    @Override
+    public void run() {
+        for (char c = 'A'; c <= 'E'; c++) {
+            System.out.println(Thread.currentThread().getName() + " prints letter: " + c);
+            try {
+                Thread.sleep(600); // Pause for 0.6 seconds
+            } catch (InterruptedException e) {
+                System.out.println(Thread.currentThread().getName() + " interrupted.");
+            }
+        }
+    }
+}
+
+// Main class
+public class ConcurrentProcessingSystem {
+    public static void main(String[] args) {
+
+        // Create thread objects
+        Thread t1 = new NumberTask();
+        t1.setName("NumberThread");
+
+        Thread t2 = new LetterTask();
+        t2.setName("LetterThread");
+
+        // Start threads (concurrent execution)
+        t1.start();
+        t2.start();
+
+        System.out.println("Main thread continues execution...");
+    }
+}
