@@ -1,0 +1,45 @@
+// Task class extending Thread
+class Task extends Thread {
+    private String taskName;
+
+    public Task(String name) {
+        this.taskName = name;
+    }
+
+    @Override
+    public void run() {
+        System.out.println(taskName + " started with priority: " + this.getPriority());
+        for (int i = 1; i <= 5; i++) {
+            System.out.println(taskName + " executing step: " + i);
+            try {
+                Thread.sleep(300); // Simulate work
+            } catch (InterruptedException e) {
+                System.out.println(taskName + " interrupted.");
+            }
+        }
+        System.out.println(taskName + " finished.");
+    }
+}
+
+// Main class
+public class PriorityExecutionEngine {
+    public static void main(String[] args) {
+
+        // Create threads
+        Task highPriorityTask = new Task("HighPriorityTask");
+        Task mediumPriorityTask = new Task("MediumPriorityTask");
+        Task lowPriorityTask = new Task("LowPriorityTask");
+
+        // Assign thread priorities
+        highPriorityTask.setPriority(Thread.MAX_PRIORITY);   // 10
+        mediumPriorityTask.setPriority(Thread.NORM_PRIORITY); // 5
+        lowPriorityTask.setPriority(Thread.MIN_PRIORITY);    // 1
+
+        // Start threads
+        lowPriorityTask.start();
+        mediumPriorityTask.start();
+        highPriorityTask.start();
+
+        System.out.println("Main thread continues execution...");
+    }
+}
