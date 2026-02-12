@@ -1,0 +1,55 @@
+// Abstract class
+abstract class Shape {
+    
+    // Abstract method (no implementation)
+    abstract double computeArea();
+    
+    // Concrete method
+    void display() {
+        System.out.println("Calculating area of shape...");
+    }
+}
+
+// Subclass: Circle
+class Circle extends Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    double computeArea() {
+        return Math.PI * radius * radius;
+    }
+}
+
+// Subclass: Rectangle
+class Rectangle extends Shape {
+    private double length;
+    private double width;
+
+    public Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    @Override
+    double computeArea() {
+        return length * width;
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+        
+        Shape circle = new Circle(5);
+        circle.display();
+        System.out.println("Circle Area: " + circle.computeArea());
+
+        Shape rectangle = new Rectangle(4, 6);
+        rectangle.display();
+        System.out.println("Rectangle Area: " + rectangle.computeArea());
+    }
+}
