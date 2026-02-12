@@ -1,0 +1,35 @@
+// Base class
+class Vehicle {
+    void start() {
+        System.out.println("Vehicle is starting...");
+    }
+}
+
+// Child class 1
+class Car extends Vehicle {
+    @Override
+    void start() {
+        System.out.println("Car starts with a key.");
+    }
+}
+
+// Child class 2
+class Bike extends Vehicle {
+    @Override
+    void start() {
+        System.out.println("Bike starts with a self button.");
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+
+        // Base reference, Child object
+        Vehicle v1 = new Car();
+        Vehicle v2 = new Bike();
+
+        v1.start();  // Calls Car's start()
+        v2.start();  // Calls Bike's start()
+    }
+}
